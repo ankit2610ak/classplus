@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.repoDetails.RepoDetailsFragment">
+
+    <TextView
+        android:id="@+id/description_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Description: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/description_title"
+        app:layout_constraintTop_toTopOf="@+id/description_title"
+        tools:text="TextView" />
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="Photo"
+        app:layout_constraintStart_toStartOf="@+id/description_title"
+        app:layout_constraintTop_toBottomOf="@+id/description_title" />
+
+    <TextView
+        android:id="@+id/login_repo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/photo"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        tools:text="login" />
+
+    <TextView
+        android:id="@+id/language_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Language: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+
+        app:layout_constraintStart_toStartOf="@+id/photo"
+        app:layout_constraintTop_toBottomOf="@+id/photo" />
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/description"
+
+        app:layout_constraintTop_toTopOf="@+id/language_title"
+        tools:text="language" />
+
+    <TextView
+        android:id="@+id/forks_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Forks: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/language_title"
+        app:layout_constraintTop_toBottomOf="@id/language_title"
+
+        />
+
+    <TextView
+        android:id="@+id/forks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toTopOf="@+id/forks_title"
+        tools:text="Forks: " />
+
+
+    <TextView
+        android:id="@+id/open_issues_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Open Issues: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+
+        app:layout_constraintStart_toStartOf="@id/forks_title"
+        app:layout_constraintTop_toBottomOf="@id/forks_title"
+
+        />
+
+    <TextView
+        android:id="@+id/open_issues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/description"
+
+        app:layout_constraintTop_toTopOf="@+id/open_issues_title"
+        tools:text="Open Issues"
+
+        />
+
+    <TextView
+        android:id="@+id/watchers_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Watchers: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/open_issues_title"
+        app:layout_constraintTop_toBottomOf="@id/open_issues_title"
+
+        />
+
+    <TextView
+        android:id="@+id/watchers_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toTopOf="@+id/watchers_title"
+        tools:text="Watchers"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
