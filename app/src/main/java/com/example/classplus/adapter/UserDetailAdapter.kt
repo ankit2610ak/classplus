@@ -1,6 +1,7 @@
 package com.example.classplus.adapter
 
-import android.content.Intent
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +12,13 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.classplus.MainActivity
 import com.example.classplus.R
 import com.example.classplus.model.UserDetails
+import com.example.classplus.ui.repo.RepoFragment
 
-class UserDetailAdapter :
+class UserDetailAdapter(
+     val context: Context) :
     PagedListAdapter<UserDetails, UserDetailAdapter.CustomViewHolder>(USER_COMPARATOR) {
 
 
@@ -32,7 +36,7 @@ class UserDetailAdapter :
 
     }
 
-    class CustomViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
+   inner class CustomViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
         var userPhoto: ImageView = itemLayoutView.findViewById(R.id.userPhoto)
         var login: TextView = itemLayoutView.findViewById(R.id.login)
         var type: TextView = itemLayoutView.findViewById(R.id.type)
@@ -44,16 +48,16 @@ class UserDetailAdapter :
             Glide.with(userPhoto.context)
                 .load(user.avatar_url)
                 .into(userPhoto)
-           /* cardView.setOnClickListener {
-                val intent = Intent(it.context, RepoActivity::class.java).apply {
-                    putExtra("login", user.login)
-                }
-                it.context.startActivity(intent)
-
-            }*/
+            cardView.setOnClickListener {
+                val fragment = RepoFragment.newInstance()
+                val bundle = Bundle()
+                bundle.putString("login", user.login)
+                fragment.arguments = bundle
+                (context as MainActivity).addFragment(fragment)
+            }
         }
 
-    }
+   }
 
     companion object {
         private val USER_COMPARATOR = object : DiffUtil.ItemCallback<UserDetails>() {
