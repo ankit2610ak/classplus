@@ -1,6 +1,7 @@
 package com.example.classplus.ui.main
 
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.classplus.R
 import com.example.classplus.adapter.UserDetailAdapter
+import com.example.classplus.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
 
@@ -19,28 +21,26 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
-    lateinit var recyclerView: RecyclerView
     lateinit var adapter: UserDetailAdapter
-
+    lateinit var binding: MainFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        val view = inflater.inflate(R.layout.main_fragment, container, false)
+        binding = MainFragmentBinding.inflate(layoutInflater, container, false)
 
-        recyclerView = view.findViewById(R.id.user_list_recycler_view)
         adapter = UserDetailAdapter(this.requireContext())
-        recyclerView.layoutManager =
+        binding.userListRecyclerView.layoutManager =
             LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
 
         viewModel.userPagedList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
-        recyclerView.adapter = adapter
+        binding.userListRecyclerView.adapter = adapter
 
-        return view
+        return binding.root
     }
 
 }
