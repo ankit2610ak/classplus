@@ -50,7 +50,18 @@ class RepoFragment : Fragment() {
             repoList.clear()
             repoList.addAll(it)
             adapter.notifyDataSetChanged()
+            showUI()
+
         })
+    }
+
+    private fun showUI() {
+        // Stop Shimmer
+        binding.shimmerViewContainer.stopShimmer()
+        binding.shimmerViewContainer.visibility = View.GONE
+        // Show data
+        binding.repoListRecyclerView.visibility = View.VISIBLE
+
     }
 
     private fun configureRecyclerView() {

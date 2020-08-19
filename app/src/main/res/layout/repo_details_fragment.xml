@@ -10,9 +10,13 @@
             type="com.example.classplus.ui.repoDetails.RepoDetailsViewModel" />
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         tools:context=".ui.repoDetails.RepoDetailsFragment">
 
         <TextView
@@ -23,31 +27,33 @@
             android:layout_marginTop="16dp"
             android:text="Description: "
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/watchers_title" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="200dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:paddingEnd="8dp"
-            android:text="@{viewmodel._livedata.description}"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/description_title"
-            app:layout_constraintTop_toTopOf="@+id/description_title"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/description_title"
+            app:layout_constraintTop_toBottomOf="@+id/description_title"
             tools:text="TextView" />
 
         <ImageView
             android:id="@+id/photo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginTop="28dp"
+            android:layout_marginStart="8dp"
             android:contentDescription="Photo"
-            app:layout_constraintStart_toStartOf="@+id/description_title"
-            app:layout_constraintTop_toBottomOf="@+id/description_title" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/login_repo"
@@ -58,7 +64,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
-            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintTop_toTopOf="@+id/photo"
             tools:text="login" />
 
         <TextView
@@ -66,9 +72,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="6dp"
             android:text="Language: "
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/photo"
             app:layout_constraintTop_toBottomOf="@+id/photo" />
 
@@ -78,8 +85,8 @@
             android:layout_height="wrap_content"
             android:text="@{viewmodel._livedata.language}"
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/description"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/language_title"
             tools:text="language" />
 
@@ -90,7 +97,7 @@
             android:layout_marginTop="8dp"
             android:text="Forks: "
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/language_title"
             app:layout_constraintTop_toBottomOf="@id/language_title" />
 
@@ -99,7 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="@+id/description"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/forks_title"
             tools:text="Forks: " />
 
@@ -111,7 +119,7 @@
             android:layout_marginTop="8dp"
             android:text="Open Issues: "
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/forks_title"
             app:layout_constraintTop_toBottomOf="@id/forks_title" />
 
@@ -120,8 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/description"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/open_issues_title"
             tools:text="Open Issues" />
 
@@ -132,7 +140,7 @@
             android:layout_marginTop="8dp"
             android:text="Watchers: "
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/open_issues_title"
             app:layout_constraintTop_toBottomOf="@id/open_issues_title" />
 
@@ -141,10 +149,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/description"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/watchers_title"
             tools:text="Watchers" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

@@ -51,7 +51,16 @@ class MainFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.userPagedList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
+            showUI()
         })
+    }
+
+    private fun showUI() {
+        // Stop Shimmer
+        binding.shimmerViewContainer.stopShimmer()
+        binding.shimmerViewContainer.visibility = View.GONE
+        // Show data
+        binding.userListRecyclerView.visibility = View.VISIBLE
     }
 
 }
