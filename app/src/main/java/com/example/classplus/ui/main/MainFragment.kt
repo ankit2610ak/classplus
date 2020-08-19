@@ -31,16 +31,27 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         binding = MainFragmentBinding.inflate(layoutInflater, container, false)
 
+        configureRecyclerView()
+        observeLiveData()
+        setAdapterInRecyclerView()
+
+        return binding.root
+    }
+
+    private fun setAdapterInRecyclerView() {
         adapter = UserDetailAdapter(this.requireContext())
+        binding.userListRecyclerView.adapter = adapter
+    }
+
+    private fun configureRecyclerView() {
         binding.userListRecyclerView.layoutManager =
             LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
+    }
 
+    private fun observeLiveData() {
         viewModel.userPagedList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
-        binding.userListRecyclerView.adapter = adapter
-
-        return binding.root
     }
 
 }

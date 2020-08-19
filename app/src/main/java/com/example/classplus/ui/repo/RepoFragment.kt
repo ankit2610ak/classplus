@@ -30,22 +30,36 @@ class RepoFragment : Fragment() {
     ): View? {
         viewModel = ViewModelProviders.of(this).get(RepoViewModel::class.java)
         binding = RepoFragmentBinding.inflate(layoutInflater, container, false)
-        login = arguments?.getString("login").toString()
 
-        binding.repoListRecyclerView.layoutManager =
-            LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
+        setBundleValueFromAdapter()
+        configureRecyclerView()
+        observeLivedata()
+        viewModel.getRepoDetails(login)
+        setAdapterInRecyclerView()
 
+        return binding.root
+    }
+
+    private fun setAdapterInRecyclerView() {
+        adapter = ReposAdapter(repoList, this.requireContext())
+        binding.repoListRecyclerView.adapter = adapter
+    }
+
+    private fun observeLivedata() {
         viewModel._livedata.observe(viewLifecycleOwner, Observer {
             repoList.clear()
             repoList.addAll(it)
             adapter.notifyDataSetChanged()
         })
-        adapter = ReposAdapter(repoList, this.requireContext())
+    }
 
-        viewModel.getRepoDetails(login)
-        binding.repoListRecyclerView.adapter = adapter
+    private fun configureRecyclerView() {
+        binding.repoListRecyclerView.layoutManager =
+            LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
+    }
 
-        return binding.root
+    private fun setBundleValueFromAdapter() {
+        login = arguments?.getString("login").toString()
     }
 
 }
