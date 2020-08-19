@@ -26,8 +26,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Description: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/watchers_title" />
 
@@ -37,10 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/colorAccent"
-            android:textSize="19sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/description_title"
             app:layout_constraintTop_toBottomOf="@+id/description_title"
             tools:text="TextView" />
@@ -49,7 +48,7 @@
             android:id="@+id/photo"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:layout_marginStart="8dp"
             android:contentDescription="Photo"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="48dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/photo"
             tools:text="login" />
@@ -74,8 +73,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginStart="6dp"
             android:text="Language: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/photo"
             app:layout_constraintTop_toBottomOf="@+id/photo" />
 
@@ -84,8 +83,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewmodel._livedata.language}"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/language_title"
             tools:text="language" />
@@ -96,8 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Forks: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/language_title"
             app:layout_constraintTop_toBottomOf="@id/language_title" />
 
@@ -105,8 +104,8 @@
             android:id="@+id/forks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/forks_title"
             tools:text="Forks: " />
@@ -118,8 +117,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Open Issues: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/forks_title"
             app:layout_constraintTop_toBottomOf="@id/forks_title" />
 
@@ -127,8 +126,8 @@
             android:id="@+id/open_issues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/open_issues_title"
             tools:text="Open Issues" />
@@ -139,8 +138,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Watchers: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/open_issues_title"
             app:layout_constraintTop_toBottomOf="@id/open_issues_title" />
 
@@ -148,8 +147,8 @@
             android:id="@+id/watchers_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="@+id/watchers_title"
             tools:text="Watchers" />

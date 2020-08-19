@@ -39,8 +39,8 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/userPhoto"
             app:layout_constraintTop_toTopOf="@+id/userPhoto"
             tools:layout_editor_absoluteX="134dp"
@@ -53,7 +53,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginBottom="4dp"
             android:text="Type: "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
             app:layout_constraintStart_toEndOf="@+id/userPhoto" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="User"
-            android:textColor="@color/colorAccent"
+            android:textColor="@android:color/darker_gray"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/typeHeading"
             app:layout_constraintTop_toTopOf="@+id/typeHeading" />
