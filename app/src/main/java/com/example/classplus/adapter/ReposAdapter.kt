@@ -23,7 +23,6 @@ class ReposAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         return CustomViewHolder(
-
             LayoutInflater.from(context).inflate(R.layout.list_item_repo, parent, false)
         )
 
@@ -47,7 +46,7 @@ class ReposAdapter(
         holder: CustomViewHolder,
         userDetails: Repos
     ) {
-        holder.name.text = "Name: " + userDetails.full_name
+        holder.name.text = userDetails.full_name
         holder.watchers.text = userDetails.watchers.toString()
         holder.branch.text = userDetails.default_branch
         Glide.with(context).load(userDetails.owner.avatar_url).into(holder.pic)

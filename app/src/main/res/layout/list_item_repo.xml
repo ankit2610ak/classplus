@@ -21,15 +21,25 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            tools:text="Name"
-            android:textColor="@color/colorAccent"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/darker_gray"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/pic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Name: "
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/pic"
+            app:layout_constraintTop_toTopOf="@id/name" />
+
 
         <ImageView
             android:id="@+id/pic"
@@ -50,7 +60,7 @@
             android:layout_marginTop="36dp"
             android:layout_marginStart="16dp"
             android:text="Watchers"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/pic"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -61,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             tools:text="Watchers:"
-            android:textColor="@color/colorAccent"
+            android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/branchText"
             app:layout_constraintTop_toTopOf="@+id/watchersText" />
@@ -71,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Default Branch: "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/watchersText"
             app:layout_constraintTop_toBottomOf="@+id/watchersText" />
@@ -82,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             tools:text="Default branch"
-            android:textColor="@color/colorAccent"
+            android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/branchText"
             app:layout_constraintTop_toTopOf="@+id/branchText" />
