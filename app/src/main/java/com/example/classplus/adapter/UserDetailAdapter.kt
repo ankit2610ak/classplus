@@ -24,7 +24,6 @@ class UserDetailAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         return CustomViewHolder(
-
             LayoutInflater.from(parent.context).inflate(R.layout.list_item_users, parent, false)
         )
 
@@ -37,25 +36,33 @@ class UserDetailAdapter(
     }
 
    inner class CustomViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
-        var userPhoto: ImageView = itemLayoutView.findViewById(R.id.userPhoto)
-        var login: TextView = itemLayoutView.findViewById(R.id.login)
-        var type: TextView = itemLayoutView.findViewById(R.id.type)
-        var cardView: ConstraintLayout = itemLayoutView.findViewById(R.id.user_layout)
+       var userPhoto: ImageView = itemLayoutView.findViewById(R.id.userPhoto)
+       var login: TextView = itemLayoutView.findViewById(R.id.login)
+       var type: TextView = itemLayoutView.findViewById(R.id.type)
+       var cardView: ConstraintLayout = itemLayoutView.findViewById(R.id.user_layout)
 
-        fun bind(user: UserDetails) {
-            login.text = user.login
-            type.text = user.type
-            Glide.with(userPhoto.context)
-                .load(user.avatar_url)
-                .into(userPhoto)
-            cardView.setOnClickListener {
-                val fragment = RepoFragment.newInstance()
-                val bundle = Bundle()
-                bundle.putString("login", user.login)
-                fragment.arguments = bundle
-                (context as MainActivity).addFragment(fragment)
-            }
-        }
+       fun bind(user: UserDetails) {
+           updateUI(user)
+           cardView.setOnClickListener {
+               openUserRepos(user)
+           }
+       }
+
+       private fun updateUI(user: UserDetails) {
+           login.text = user.login
+           type.text = user.type
+           Glide.with(userPhoto.context)
+               .load(user.avatar_url)
+               .into(userPhoto)
+       }
+
+       private fun openUserRepos(user: UserDetails) {
+           val fragment = RepoFragment.newInstance()
+           val bundle = Bundle()
+           bundle.putString("login", user.login)
+           fragment.arguments = bundle
+           (context as MainActivity).addFragment(fragment)
+       }
 
    }
 

@@ -36,22 +36,31 @@ class ReposAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val userDetails = repoArrayList[position]
+
+        updateUI(holder, userDetails)
+        holder.itemView.setOnClickListener {
+            openRepoDetails(userDetails)
+        }
+    }
+
+    private fun updateUI(
+        holder: CustomViewHolder,
+        userDetails: Repos
+    ) {
         holder.name.text = "Name: " + userDetails.full_name
         holder.watchers.text = userDetails.watchers.toString()
         holder.branch.text = userDetails.default_branch
         Glide.with(context).load(userDetails.owner.avatar_url).into(holder.pic)
+    }
 
-        holder.itemView.setOnClickListener {
+    private fun openRepoDetails(userDetails: Repos) {
+        val fragment = RepoDetailsFragment.newInstance()
+        val bundle = Bundle()
+        bundle.putString("login", userDetails.owner.login)
+        bundle.putString("name", userDetails.name)
 
-            val fragment = RepoDetailsFragment.newInstance()
-            val bundle = Bundle()
-            bundle.putString("login", userDetails.owner.login)
-            bundle.putString("name", userDetails.name)
-
-            fragment.arguments = bundle
-            (context as MainActivity).addFragment(fragment)
-
-        }
+        fragment.arguments = bundle
+        (context as MainActivity).addFragment(fragment)
     }
 
     class CustomViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
